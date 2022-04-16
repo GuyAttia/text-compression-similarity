@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  advanced_ml_jupyter:
+    image: advanced-ml:latest
+    build: .
+    volumes:
+      - "./data:/ML/data"
+      - "./notebooks:/ML/notebooks"
+      # - "./src:/ML/src"
+    ports:
+      - "8888:8888"
+    command: jupyter notebook --no-browser --ip='*' --port=8888 --allow-root --NotebookApp.token='' --NotebookApp.password=''
